@@ -1,18 +1,14 @@
-function sendAuthorisationRequest(browserToken, code) {
+async function sendAuthorisationRequest(browserToken, code) {
     var authorizationUrl = "https://scaria.herokuapp.com/github-tree-graph-server/authorize?browsertoken=" + browserToken + "&code=" + code;
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET", authorizationUrl, true);
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4) {
-            var response = JSON.parse(xhr.responseText);
-            if (response == "SUCCESS") {
-                changeAuthorizationStatus("SUCCESS");
-            } else {
-                changeAuthorizationStatus("FAIL");
-            }
+    await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
+        console.log("Response text is " + responseText);
+        if (responseText == "SUCCESS") {
+            changeAuthorizationStatus("SUCCESS");
         }
-    }
-    xhr.send();
+        else {
+            changeAuthorizationStatus("FAIL");
+        }
+    });
 }
 
 function waitAndCloseWindow() {
