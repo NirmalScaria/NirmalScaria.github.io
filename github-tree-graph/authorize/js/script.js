@@ -12,6 +12,7 @@ function sendAuthorisationRequest(browserToken, code) {
             }
         }
     }
+    xhr.send();
 }
 
 function waitAndCloseWindow() {
