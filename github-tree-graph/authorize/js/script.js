@@ -1,5 +1,5 @@
 async function sendAuthorisationRequest(browserToken, code) {
-    var authorizationUrl = "https://scaria.herokuapp.com/github-tree-graph-server/authorize?browsertoken=" + browserToken + "&code=" + code;
+    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticate?browsertoken=" + browserToken + "&code=" + code;
     await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
         console.log("Response text is " + responseText);
         if (responseText == "SUCCESS") {
