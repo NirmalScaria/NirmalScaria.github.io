@@ -1,4 +1,4 @@
-async function sendAuthorisationRequest(browserToken, code) {
+async function sendAuthorisationRequestv1(browserToken, code) {
     var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticatev2?browsertoken=" + browserToken + "&code=" + code;
     await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
         // decode responseText json
@@ -10,6 +10,22 @@ async function sendAuthorisationRequest(browserToken, code) {
         }
         else {
             changeAuthorizationStatus("FAIL", "");
+        }
+    });
+}
+
+async function sendAuthorisationRequestv2(browserToken, code) {
+    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticate?version=2&browsertoken=" + browserToken + "&code=" + code;
+    await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
+        // decode responseText json
+        var responseJson = JSON.parse(responseText);
+        var status = responseJson.STATUS;
+        console.log("Response text is " + responseText);
+        if (status == "SUCCESS") {
+            // changeAuthorizationStatus("SUCCESS", responseJson.TOKEN);
+        }
+        else {
+            // changeAuthorizationStatus("FAIL", "");
         }
     });
 }
@@ -55,5 +71,15 @@ window.onload = function () {
     var url = new URL(urlString);
     var browserToken = url.searchParams.get("browsertoken");
     var code = url.searchParams.get("code");
-    sendAuthorisationRequest(browserToken, code);
+    // check if version parameter is provided
+    var version = url.searchParams.get("version");
+    if (version == null) {
+        version = 1;
+    }
+    if(version == 1){
+        sendAuthorisationRequestv1(browserToken, code);
+    }
+    else{
+        sendAuthorisationRequestv2(browserToken, code);
+    }
 }
