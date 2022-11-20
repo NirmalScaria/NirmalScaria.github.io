@@ -49,7 +49,7 @@ function changeAuthorizationStatus(status, token) {
         var mainButton = document.getElementById('mymainbutton');
         mainButton.innerHTML = "Done";
         mainButton.style = "background-color: rgb(2, 138, 34); border-color: rgb(5, 170, 63);";
-        mainButton.setAttribute('disabled', false);
+        mainButton.removeAttribute("disabled");
         mainButton.setAttribute('onclick', 'window.close();');
         waitAndCloseWindow();
     }
@@ -62,7 +62,7 @@ function changeAuthorizationStatus(status, token) {
         mainSubtitle.innerHTML = "Please try again. Make sure you accept the necessary permissions in GitHub OAuth.";
         var mainButton = document.getElementById('mymainbutton');
         mainButton.innerHTML = "Try again";
-        mainButton.setAttribute('disabled', false);
+        mainButton.removeAttribute("disabled");
         mainButton.setAttribute('onclick', 'window.close();');
     }
 }
