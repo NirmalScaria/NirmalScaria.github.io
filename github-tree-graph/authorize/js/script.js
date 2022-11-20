@@ -82,7 +82,7 @@ function changeAuthorizationStatusv2(status, token) {
         mainButton.innerHTML = "Done";
         mainButton.style = "background-color: rgb(2, 138, 34); border-color: rgb(5, 170, 63);";
         mainButton.removeAttribute("disabled")
-        chrome.runtime.sendMessage({ action: "authDone", status: "SUCCESS", token: token});
+        authorizationSuccessCallBack(token);
         mainButton.setAttribute('onclick', 'window.close();');
         // waitAndCloseWindow();
     }
@@ -96,7 +96,7 @@ function changeAuthorizationStatusv2(status, token) {
         var mainButton = document.getElementById('mymainbutton');
         mainButton.innerHTML = "Try again";
         mainButton.removeAttribute("disabled")
-        chrome.runtime.sendMessage({ action: "authDone", status: "FAIL"});
+        authorizationSuccessCallBack("FAIL");
         mainButton.setAttribute('onclick', 'window.close();');
     }
 }
