@@ -96,6 +96,7 @@ function changeAuthorizationStatusv2(status, token) {
         var mainButton = document.getElementById('mymainbutton');
         mainButton.innerHTML = "Try again";
         mainButton.setAttribute('disabled', false);
+        authorizationSuccessCallBack("FAIL");
         mainButton.setAttribute('onclick', 'window.close();');
     }
 }
