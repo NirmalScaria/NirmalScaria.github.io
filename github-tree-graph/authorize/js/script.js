@@ -1,12 +1,8 @@
 async function sendAuthorisationRequestv1(browserToken, code) {
     var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticate?browsertoken=" + browserToken + "&code=" + code;
     await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
-        // decode responseText json
-        var responseJson = JSON.parse(responseText);
-        var status = responseJson.STATUS;
-        console.log("Response text is " + responseText);
-        if (status == "SUCCESS") {
-            changeAuthorizationStatus("SUCCESS", responseJson.TOKEN);
+        if (responseText == "SUCCESS") {
+            changeAuthorizationStatus("SUCCESS", "");
         }
         else {
             changeAuthorizationStatus("FAIL", "");
@@ -109,10 +105,10 @@ window.onload = function () {
     if (version == null) {
         version = 1;
     }
-    if(version == 1){
+    if (version == 1) {
         sendAuthorisationRequestv1(browserToken, code);
     }
-    else{
+    else {
         sendAuthorisationRequestv2(code);
     }
 }
