@@ -1,5 +1,5 @@
 async function sendAuthorisationRequestv1(browserToken, code) {
-    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticatev2?browsertoken=" + browserToken + "&code=" + code;
+    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticate?browsertoken=" + browserToken + "&code=" + code;
     await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
         // decode responseText json
         var responseJson = JSON.parse(responseText);
@@ -14,16 +14,15 @@ async function sendAuthorisationRequestv1(browserToken, code) {
     });
 }
 
-async function sendAuthorisationRequestv2(browserToken, code) {
-    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticate?version=2&browsertoken=" + browserToken + "&code=" + code;
+async function sendAuthorisationRequestv2(code) {
+    var authorizationUrl = "https://us-central1-github-tree-graph.cloudfunctions.net/authenticatev2?version=2" + "&code=" + code;
     await fetch(authorizationUrl).then(response => response.text()).then(async responseText => {
-        // decode responseText json
         var responseJson = JSON.parse(responseText);
         var status = responseJson.STATUS;
         console.log("Response text is " + responseText);
         if (status == "SUCCESS") {
             console.log("Chaing status with token " + responseJson.TOKEN);
-            changeAuthorizationStatusv2("SUCCESS", responseJson.TOKEN);
+            changeAuthorizationStatusv2("SUCCESS", responseJson.TOKEN, responseJson.userName);
         }
         else {
             changeAuthorizationStatusv2("FAIL", "");
@@ -68,7 +67,7 @@ function changeAuthorizationStatus(status, token) {
     }
 }
 
-function changeAuthorizationStatusv2(status, token) {
+function changeAuthorizationStatusv2(status, token, userName) {
     if (status == "SUCCESS") {
         console.log("Successfull!! Token is");
         console.log(token);
@@ -114,6 +113,6 @@ window.onload = function () {
         sendAuthorisationRequestv1(browserToken, code);
     }
     else{
-        sendAuthorisationRequestv2(browserToken, code);
+        sendAuthorisationRequestv2(code);
     }
 }
