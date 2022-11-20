@@ -81,7 +81,7 @@ function changeAuthorizationStatusv2(status, token, userName) {
         mainButton.innerHTML = "Done";
         mainButton.style = "background-color: rgb(2, 138, 34); border-color: rgb(5, 170, 63);";
         mainButton.removeAttribute("disabled")
-        authorizationSuccessCallBack(token);
+        authorizationSuccessCallBack(token, userName);
         mainButton.setAttribute('onclick', 'window.close();');
         // waitAndCloseWindow();
     }
