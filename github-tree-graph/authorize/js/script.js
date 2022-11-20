@@ -22,7 +22,7 @@ async function sendAuthorisationRequestv2(code) {
         console.log("Response text is " + responseText);
         if (status == "SUCCESS") {
             console.log("Chaing status with token " + responseJson.TOKEN);
-            changeAuthorizationStatusv2("SUCCESS", responseJson.TOKEN, responseJson.userName);
+            changeAuthorizationStatusv2("SUCCESS", responseJson.TOKEN, responseJson.USER);
         }
         else {
             changeAuthorizationStatusv2("FAIL", "");
