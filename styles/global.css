@@ -1,0 +1,27 @@
+.headtext {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    font-size: 35px;
+    color: white;
+}
+.bluetext {
+    color: #CABAFA;
+    font-weight: 600;
+}
+.underline {
+    text-decoration: underline;
+}
+.rowflex {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.margintop10 {
+    margin-top: 10px;
+}
+.margintop20 {
+    margin-top: 20px;
+}
+.whitetext {
+    color: white !important;
+}

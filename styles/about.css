@@ -1,0 +1,133 @@
+.aboutsection {
+    height: 100%;
+}
+
+.aboutcontent {
+    display: flex;
+    direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.abouttext {
+    flex: 5;
+    position: relative;
+    padding-left: 70px;
+    padding-right: 50px;
+}
+
+
+
+.abouttagline {
+    color: #AEB4BC;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.iconImage {
+    position: inherit;
+    height: 55px;
+    width: 55px;
+    cursor: pointer;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+}
+
+.verticalLine {
+    display: inline-block;
+    position: relative;
+    margin-left: 2px;
+    margin-right: 7px;
+    height: 60px;
+    width: 1px;
+    background-color: #AEB4BC;
+}
+
+.bordercontainer {
+    position: relative;
+    padding: 2px;
+    background: #00000000;
+    z-index: 1;
+    margin-right: 4px;
+    height: 61px;
+    width: 61px;
+    border-radius: 14px;
+    mix-blend-mode: hard-light;
+    transition: all 1s;
+}
+
+.bordercontainerselected {
+    background: linear-gradient(135deg, #E8E3F4, #526AE9);
+}
+
+.borderinside {
+    z-index: -1;
+    border-radius: 13px;
+    background-color: black;
+    padding: 3px;
+    height: 55px;
+    width: 55px;
+}
+
+.skilltitle {
+    font-family: 'Montserrat';
+    font-size: 19px;
+    font-weight: 500;
+    color: #CABAFA;
+    text-decoration: underline;
+    margin-bottom: 2px;
+    margin-top: 8px;
+}
+
+.skilldescription {
+    font-family: 'Montserrat';
+    font-size: 16px;
+    font-weight: 400;
+    color: #AEB4BC;
+    margin-top: 4px;
+}
+
+.aboutimagecontainer {
+    flex: 4;
+    padding-left: 50px;
+    padding-right: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profileimage {
+    border-radius: 7px;
+    width: 350px;
+    align-self: center;
+    box-shadow: 0px 0px 80px #C7BBE969;
+}
+
+.skillcontent {
+    position: absolute;
+    transition: all 1s;
+}
+
+.showncontent {
+    transition: all 0.4s ease-in-out;
+    filter: none;
+    -webkit-filter: none;
+}
+
+.hiddencontent {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    position: absolute;
+    margin-left: 100px;
+    opacity: 0;
+}
+
+.skillcontentdummy {
+    height: 50px;
+    width: 10px;
+    z-index: -1;
+}

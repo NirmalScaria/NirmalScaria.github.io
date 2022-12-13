@@ -1,0 +1,106 @@
+body {
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-size: 12px;
+    line-height: 1.42857143;
+    margin: 0;
+height: 100%;
+    width: 100%;
+}
+html {
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    
+}
+
+.navbar {
+    border-radius: 0;
+    border-width: 0;
+    box-shadow: none;
+    margin: 30px;
+}
+
+.nounderline {
+    text-decoration: none;
+}
+
+.mainhead {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.navitem {
+    display: inline-block;
+}
+
+.navitems {
+    padding: 0;
+    display: inline;
+    width: 600px;
+    text-align: center;
+}
+
+.navitem {
+    display: table-cell;
+    position: relative;
+    padding: 10px 0;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    margin: 10px;
+}
+
+.navitemText {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 20px;
+    position: relative;
+}
+
+.navitemText:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    border-radius: 10px;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+
+.navitemText:hover:after {
+    width: 50%;
+    left: 25%;
+}
+
+.navitemActiveText {
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 5px 20px;
+    position: relative;
+}
+
+.navitemActiveText:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    border-radius: 10px;
+    height: 2px;
+    width: 50%;
+    left: 25%;
+    position: absolute;
+    background: #fff;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+}
