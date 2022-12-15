@@ -117,3 +117,13 @@ function nextproject() {
     }
 }
 // reands();
+
+function openlegitgraph() {
+    var win = window.open("https://chrome.google.com/webstore/detail/le-git-graph-commits-grap/joggkdfebigddmaagckekihhfncdobff", '_blank');
+    win.focus();
+}
+
+function openlabelmarker() {
+    var win = window.open("https://github.com/NirmalScaria/label_marker", '_blank');
+    win.focus();
+}
