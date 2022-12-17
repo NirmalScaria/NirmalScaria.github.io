@@ -16,6 +16,7 @@
 }
 
 .moreButton {
+    cursor: pointer;
     position: absolute;
     top: 90%;
     left: 50%;
