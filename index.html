@@ -29,11 +29,11 @@
                 SCARIA.DEV
             </a>
             <ul class="navitems">
-                <li class="navitem"><a class="nounderline navitemActiveText">Portfolio</a></li>
-                <li class="navitem"><a class="nounderline navitemText">About</a></li>
-                <li class="navitem"><a class="nounderline navitemText">Projects</a></li>
-                <li class="navitem"><a class="nounderline navitemText">Experience</a></li>
-                <li class="navitem"><a class="nounderline navitemText">Contact</a></li>
+                <li class="navitem"><a class="nounderline navitemActiveText" onclick = "navigateTo('portfoliosection')">Portfolio</a></li>
+                <li class="navitem"><a class="nounderline navitemText" onclick = "navigateTo('aboutsection')">About</a></li>
+                <li class="navitem"><a class="nounderline navitemText"  onclick = "navigateTo('projectssection')">Projects</a></li>
+                <li class="navitem"><a class="nounderline navitemText"  onclick = "openresume()">Resume</a></li>
+                <li class="navitem"><a class="nounderline navitemText"  onclick = "opencontact()">Contact</a></li>
             </ul>
         </div>
 
@@ -49,12 +49,12 @@
         </div>
         <div class="buttonSection">
 
-            <button class="seeMyWorkButton">See my work
+            <button class="seeMyWorkButton" onclick = "navigateTo('projectssection')">See my work
 
                 <i class="blackarrow right"></i>
             </button>
             <div style="width: 10px; display: inline-block;"></div>
-            <button class="getInTouchButton">Get in touch
+            <button class="getInTouchButton" onclick = "opencontact()">Get in touch
 
                 <i class="whitearrow right"></i>
             </button>
@@ -67,7 +67,7 @@
     </div>
     <!-- Portfolio page ends -->
     <!-- About page -->
-    <div class="aboutsection">
+    <div class="aboutsection" id = "aboutsection">
         <div class="aboutcontent">
             <div class="abouttext">
                 <a class="headtext">About me</a>
@@ -176,7 +176,7 @@
     </div>
     <!-- About page ends -->
     <!-- Projects page -->
-    <div class="projectssection">
+    <div class="projectssection" id = "projectssection">
         <div class="projectscontent">
             <a class="headtext">Projects</a>
             <div class="projectarrows">
@@ -238,6 +238,7 @@
     </div>
 
     <script src="script.js"></script>
+    <script src="js/navigation.js"></script>
 </body>
 
 </html>
