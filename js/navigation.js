@@ -6,7 +6,7 @@ function navigateTo(target) {
     });
 }
 function openresume() {
-    window.open("https://drive.google.com/file/d/13z9vtE6Z8SqrjR4u79WStR77yL8l-NhW/view?usp=sharing", "_blank");
+    window.open("https://drive.google.com/file/d/1spOV3PCW2gFkQIHBFKV_paZdGLgxtTjO/view?usp=share_link", "_blank");
 }
 function opencontact() {
     window.open("mailto:scaria@scaria.dev");
