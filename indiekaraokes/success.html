@@ -2727,14 +2727,10 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
  
  -->
 <a style = "margin-top: 30px;">
-<!-- <div class = "btn btn--full mp3Button">Download MP3 <div style = "height: 20px; width: 20px; display: none;" class="spinner-border text-light" role="status"> -->
-  <!-- <span class="sr-only"></span> -->
-<!-- </div>
-</div> -->
 <a href = "" class = "btn mp3Button" download>Download MP3</a>
 </a>
 <a style = "margin-top: 30px;">
-  <button class = "btn btn--full wavButton">Download WAV</button>
+  <a href = "" class = "btn wavButton" download>Download WAV</a>
   </a>
 </form><!----></div></div>
         <div id="details-view" class=""><div id="details-section"><div id="description-details"><div class="title title--big">
@@ -2837,7 +2833,7 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
         audioPlayers[i].load();
       }
       var wavUrl = "https://storage.googleapis.com/karaoke-4df87.appspot.com/karaokes/" + secret + "/" + uniqueId + ".wav";
-      var mp3Url = "https://storage.googleapis.com/karaoke-4df87.appspot.com/karaokes/" + secret + "/" + uniqueId + ".wav";
+      var mp3Url = "https://storage.googleapis.com/karaoke-4df87.appspot.com/karaokes/" + secret + "/" + uniqueId + ".mp3";
       var mp3SourcesFull = document.getElementsByClassName("mp3SourceFull");
       for (var i = 0; i < mp3SourcesFull.length; i++) {
         mp3SourcesFull[i].src = mp3Url;
@@ -2846,15 +2842,8 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
       for (var i = 0; i < audioPlayersFull.length; i++) {
         audioPlayersFull[i].load();
       }
-      var mp3Buttons = document.getElementsByClassName("mp3Button");
-      for (var i = 0; i < mp3Buttons.length; i++) {
-        mp3Buttons[i].onclick = function() {
-          console.log("clicked");
-          download(mp3Url, docSnap.data().title + ".mp3");
-        }
-      }
       var storage = getStorage(app);
-      const pathReference = ref(storage, mp3Url);
+      var pathReference = ref(storage, mp3Url);
       getDownloadURL(pathReference)
       .then((url) => {
         console.log(url);
@@ -2868,11 +2857,16 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
           // }
         }
       })
-//       storage.bucket().file(mp3Url).getSignedUrl({
-//     action: 'read',
-//     promptSaveAs: 'myvideo.mp3',
-//     responseDisposition: 'attachment; filename*=utf-8\'\'myvideo.mp3'
-// })
+      var pathReference = ref(storage, wavUrl);
+      getDownloadURL(pathReference)
+      .then((url) => {
+        console.log(url);
+        var wavButtons = document.getElementsByClassName("wavButton");
+        for (var i = 0; i < wavButtons.length; i++) {
+          console.log("Setting good action");
+          wavButtons[i].href = url;
+        }
+      })
     }
 
   }
