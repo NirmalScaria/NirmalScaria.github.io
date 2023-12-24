@@ -285,27 +285,16 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
       for (var i = 0; i < audioPlayersFull.length; i++) {
         audioPlayersFull[i].load();
       }
-      var storage = getStorage(app);
-      var pathReference = ref(storage, mp3Url);
-      getDownloadURL(pathReference)
-      .then((url) => {
-        console.log(url);
         var mp3Buttons = document.getElementsByClassName("mp3Button");
         for (var i = 0; i < mp3Buttons.length; i++) {
           console.log("Setting good action");
-          mp3Buttons[i].href = url;
+          mp3Buttons[i].href = mp3Url;
         }
-      })
-      var pathReference = ref(storage, wavUrl);
-      getDownloadURL(pathReference)
-      .then((url) => {
-        console.log(url);
         var wavButtons = document.getElementsByClassName("wavButton");
         for (var i = 0; i < wavButtons.length; i++) {
           console.log("Setting good action");
-          wavButtons[i].href = url;
+          wavButtons[i].href = wavUrl;
         }
-      })
     }
 
   }
