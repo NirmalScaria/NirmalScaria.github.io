@@ -275,8 +275,8 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
       for (var i = 0; i < audioPlayers.length; i++) {
         audioPlayers[i].load();
       }
-      var wavUrl = "https://storage.googleapis.com/karaoke-4df87.appspot.com/karaokes/" + secret + "/" + uniqueId + ".wav";
-      var mp3Url = "https://storage.googleapis.com/karaoke-4df87.appspot.com/karaokes/" + secret + "/" + uniqueId + ".mp3";
+      var wavUrl = "http://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".wav";
+      var mp3Url = "http://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".mp3";
       var mp3SourcesFull = document.getElementsByClassName("mp3SourceFull");
       for (var i = 0; i < mp3SourcesFull.length; i++) {
         mp3SourcesFull[i].src = mp3Url;
