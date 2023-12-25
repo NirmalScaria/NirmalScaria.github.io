@@ -166,8 +166,9 @@ PAYMENT SUCCESS
 
 <div id="form-section" class=""><form class="UI-form " novalidate="">
 <div><div class="Field Field--required Field--amount Field--amount--selected 
-Field--currency-1 ">The karaoke has been sent to your email ID.
-  You can also download it from the link below.
+Field--currency-1 ">The payment is successful. You can download the karaoke from here.
+<!-- The karaoke has been sent to your email ID. -->
+  <!-- You can also download it from the link below. -->
   
 
    
@@ -276,7 +277,7 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
         audioPlayers[i].load();
       }
       var wavUrl = "https://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".wav";
-      var mp3Url = "https://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".mp3";
+      var mp3Url = "http://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".mp3";
       var mp3SourcesFull = document.getElementsByClassName("mp3SourceFull");
       for (var i = 0; i < mp3SourcesFull.length; i++) {
         mp3SourcesFull[i].src = mp3Url;
@@ -287,13 +288,13 @@ Field--currency-1 ">The karaoke has been sent to your email ID.
       }
         var mp3Buttons = document.getElementsByClassName("mp3Button");
         for (var i = 0; i < mp3Buttons.length; i++) {
-          console.log("Setting good action");
           mp3Buttons[i].href = mp3Url;
+          mp3Buttons[i].download = docSnap.data().title + ".mp3";
         }
         var wavButtons = document.getElementsByClassName("wavButton");
         for (var i = 0; i < wavButtons.length; i++) {
-          console.log("Setting good action");
           wavButtons[i].href = wavUrl;
+          wavButtons[i].download = docSnap.data().title + ".wav";
         }
     }
 
