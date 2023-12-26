@@ -35,6 +35,15 @@
 
                             
     <script async="" src="./files/modules.f8398e1fcf749800c3fc.js" charset="utf-8"></script></head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RV4RPW9ZKY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RV4RPW9ZKY');
+</script>
 <!-- MOBILE VERSION ONLY -->
 <div class = "d-lg-none">
     <body class="theme-mobile light">
@@ -257,6 +266,7 @@ Field--currency-1 ">The payment is successful. You can download the karaoke from
       // document.getElementById("description").innerHTML = docSnap.data();
       document.getElementsByTagName("title")[0].innerHTML = docSnap.data().title;
       var images = document.getElementsByClassName("thumpnail");
+      var pageTitle = docSnap.data().title;
       for (var i = 0; i < images.length; i++) {
         images[i].src = docSnap.data().thumpnail;
       }
@@ -290,12 +300,25 @@ Field--currency-1 ">The payment is successful. You can download the karaoke from
         for (var i = 0; i < mp3Buttons.length; i++) {
           mp3Buttons[i].href = mp3Url;
           mp3Buttons[i].download = "Karaokeee" + ".mp3";
+          mp3Buttons[i].addEventListener('click', function(e) {
+            gtag('event', 'download_mp3', {
+              'title': pageTitle,
+            });
+          });
         }
         var wavButtons = document.getElementsByClassName("wavButton");
         for (var i = 0; i < wavButtons.length; i++) {
           wavButtons[i].href = wavUrl;
           wavButtons[i].download = docSnap.data().title + ".wav";
+          wavButtons[i].addEventListener('click', function(e) {
+            gtag('event', 'download_wav', {
+              'title': pageTitle,
+            });
+          });
         }
+        gtag('event', 'view_result', {
+          'title': pageTitle,
+        });
     }
 
   }
