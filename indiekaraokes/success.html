@@ -6,13 +6,13 @@
         
         <meta name="viewport" content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1">
         <meta name="robots" content="index, follow">
-        <meta name="description" content=". . Loading details..... . This is the karaoke of the song Loading details..... . . ">
+        <meta name="description" content="Karaoke Download Page">
 
         <meta property="og:title" content="Pay for Loading.... by Indie Karaokes">
         <meta property="og:image" content="https://cdn..com/static/assets/logo/rzp.png">
         <meta property="og:image:width" content="276px">
         <meta property="og:image:height" content="276px">
-        <meta property="og:description" content=". . Loading details..... . This is the karaoke of the song Loading details..... . . SAMPLE. This is the short sample of the karaoke. . FULL KARAOKE. Upon completion of the payment, you will be taken to your download page, where you can download the high quality karaoke in mp3 and wav format.. ">
+        <meta property="og:description" content="Payment successful for the karaoke. You can download the karaoke here.">
 
         <meta name="twitter:card" content="summary">
         <meta name="twitter:title" content="Pay for Loading.... by Indie Karaokes">
@@ -286,8 +286,8 @@ Field--currency-1 ">The payment is successful. You can download the karaoke from
       for (var i = 0; i < audioPlayers.length; i++) {
         audioPlayers[i].load();
       }
-      var wavUrl = "https://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".wav";
-      var mp3Url = "https://storageapi.scaria.dev/" + secret + "/" + uniqueId + ".mp3";
+      var wavUrl = "https://storage.googleapis.com/storageapi.scaria.dev/" + secret + "/" + uniqueId + ".wav";
+      var mp3Url = "https://storage.googleapis.com/storageapi.scaria.dev/" + secret + "/" + uniqueId + ".mp3";
       var mp3SourcesFull = document.getElementsByClassName("mp3SourceFull");
       for (var i = 0; i < mp3SourcesFull.length; i++) {
         mp3SourcesFull[i].src = mp3Url;
